@@ -6,12 +6,14 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { provide } from "vue"
 import * as echarts from "echarts"
+import * as d3 from "d3"
 import axios from "axios"
 
 export default {
   setup() {
     // provider("名字随便起","传递的内容")
     provide("echarts", echarts)
+    provide("d3", d3)
     provide("axios", axios)
   }
 }
@@ -19,7 +21,6 @@ export default {
 
 <style lang="less">
 body {
-  background: url("./assets/bg.jpg") no-repeat;
   background-size: 100vw 100vh;
 }
 
