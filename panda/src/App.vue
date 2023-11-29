@@ -22,6 +22,8 @@ export default {
 <style lang="less">
 body {
   background-size: 100vw 100vh;
+  // background: url("./assets/background.jpg") top right no-repeat;
+  // background-size: cover;
 }
 
 * {

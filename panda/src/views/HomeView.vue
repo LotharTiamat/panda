@@ -1,22 +1,39 @@
 <template>
   <div>
-    <header>
-      顶部导航条
-    </header>
+    <Header></Header>
     <!-- 大容器 -->
     <section class="container">
       <!-- 左容器 -->
       <section class="itemLeft">
         <div class="top">
-          <MapPage></MapPage>
+          <div class="top-inner">
+            <div class="right">
+              <MapPage></MapPage>
+            </div>
+            <div class="left">
+              <Text></Text>
+
+              <PieChart></PieChart>
+              <LineChart></LineChart>
+            </div>
+          </div>
         </div>
         <div class="bottom">
-          <BarChart>
-          </BarChart>
+          <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+            <div>
+              <el-radio-group v-model="type" size="small" @change="changeType">
+                <el-radio-button label="1">亚太地区</el-radio-button>
+                <el-radio-button label="2">欧洲</el-radio-button>
+                <el-radio-button label="3">美洲</el-radio-button>
+              </el-radio-group>
+            </div>
+          </el-row>
+          <!-- 其他组件 -->
+          <BarChart v-if="type === '1'" />
+          <BarChart v-if="type === '2'" />
+          <BarChart v-if="type === '3'" />
+          <!-- 其他组件 -->
         </div>
-      </section>
-      <!-- 右容器 -->
-      <section class="itemRight">右侧小图表
       </section>
       <section class="sideBar">侧边栏</section>
     </section>
@@ -24,48 +41,63 @@
 </template>
 
 <script>
-import ItemPage from "@/components/itemPage.vue";
-import BarChart from "@/components/barChart.vue"
+
+import PieChart from "@/components/pieChart.vue"
+import ItemPage from "@/components/itemPage.vue"
+import BarChart from "@/components/barChart(copy).vue"
 import ItemOne from "@/components/itemOne.vue"
 import ItemTwo from "@/components/itemTwo.vue"
 import ItemThree from "@/components/itemThree.vue"
 import ItemFour from "@/components/itemFour.vue"
-import MapPage from "@/components/mapPage.vue"
+import MapPage from "@/components/mapPage(1).vue"
+import Text from "@/components/text.vue"
+import Header from "@/components/header.vue"
+import LineChart from "@/components/lineChart.vue"
+import Self from "@/components/self.vue"
+// import Test from "@/components/test.vue"
 
 import { inject } from "vue"
 export default {
-  components: {
-    ItemPage, ItemOne, ItemTwo, ItemThree, ItemFour, MapPage, BarChart
+  data() {
+    return {
+      type: '1',   //定义一个字段
+    }
   },
-
+  components: {
+    ItemPage, ItemOne, ItemTwo, ItemThree, ItemFour, MapPage, BarChart, Text, Header, PieChart, LineChart, //Self,
+  },
   setup() {
     let $echarts = inject("echarts")
     let $http = inject("axios")
     console.log($echarts)
     console.log($http)
+  },
+  changeType(value) {
+    console.log("当前选中:" + value)
+    this.type = value;
   }
 };
 </script>
 
 <style lang="less">
-header {
-  height: 1rem;
-  width: 100%;
-  background-color: rgba(0, 0, 255, 0.2);
+// header {
+//   height: 1rem;
+//   width: 100%;
+//   background-color: rgba(0, 0, 255, 0.2);
 
-  // 标题的文字样式
-  h1 {
-    font-size: 0.375rem;
-    color: #fff;
-    text-align: center;
-    line-height: 1rem;
-  }
-}
+//   // 标题的文字样式
+//   h1 {
+//     font-size: 0.375rem;
+//     color: #fff;
+//     text-align: center;
+//     line-height: 1rem;
+//   }
+// }
 
 // 大容器的样式
 .container {
   //撑开大容器
-  height: 90vh;
+  height: 94vh;
   // 最大最小的宽度
   min-width: 1200px;
   max-width: 2048px;
@@ -81,27 +113,39 @@ header {
     display: flex;
     flex-direction: column;
 
-    flex: 5;
+    flex: 8;
 
     .top {
-      flex: 3;
+      flex: 1;
+
+      // 新增的容器的样式
+      .top-inner {
+        display: flex;
+        flex: 1;
+        height: 100%;
+      }
+
+      .right {
+        flex: 3;
+        height: 100%;
+        flex-direction: column;
+      }
+
+      .left {
+        flex: 2;
+        height: 100%;
+      }
     }
 
     .bottom {
-      flex: 2;
+      flex: 1;
     }
-  }
-
-  .itemRight {
-    background-color: rgba(0, 0, 255, 0.2);
-
-    flex: 3;
   }
 
   .sideBar {
     background-color: rgba(0, 0, 255, 0.2);
 
-    flex: 1;
+    flex: 0.1;
   }
 }
 </style>
