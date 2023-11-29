@@ -279,8 +279,8 @@ export default {
               type: 'scatter',
               coordinateSystem: 'geo',
               animation: false,//坐标点是否显示动画
-              symbol: 'image://' + './public/icon/panda.svg',
-              symbolSize: [50, 30],//标记的大小
+              symbol: 'image://' + './public/icon/panda.png',
+              symbolSize: [25, 25],//标记的大小
               symbolOffset: [0, 0],//标记相对于原本位置的偏移
               label: {
                 formatter: '{b}',

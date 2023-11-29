@@ -1,13 +1,14 @@
 <template lang="">
     <header>
+    <img src="../assets/favicon.ico" class="icon">
     <span class="title">胖达环游世界</span>
-    <nav class="nav">
+    <!-- <nav class="nav">
         <input type="radio" name="nav-item-opt" id="nav-item-opt-1" checked>
         <label class="nav-item" for="nav-item-opt-1">外交熊猫篇</label>
         <input type="radio" name="nav-item-opt" id="nav-item-opt-2">
         <label class="nav-item" for="nav-item-opt-2">本土熊猫篇</label>
         <div class="tracker"></div>
-    </nav>
+    </nav> -->
     </header>
 </template>
 <script>
@@ -26,12 +27,13 @@ export default {
 }
 
 header {
+    margin: 0 0.5rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /* justify-content: space-between;
+    align-items: center; */
 }
 
-:root {
+/* :root {
     --bg-color: white;
     --main-color: #e2c027;
     --nav-item-width: 100px;
@@ -43,10 +45,11 @@ body {
     /* display: flex;
     justify-content: center;
     align-items: center; */
-    background: var(--bg-color);
-}
+/* background: var(--bg-color);
+} */
 
-.nav {
+
+/* .nav {
 
     position: relative;
     background: white;
@@ -99,5 +102,10 @@ body {
 
 #nav-item-opt-3:checked~.tracker {
     transform: translateX(calc(var(--nav-item-width)*2));
+} */
+.icon {
+    width: 2.5%;
+    height: 2.5%;
+    margin: 0.05rem;
 }
 </style>

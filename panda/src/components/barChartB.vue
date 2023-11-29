@@ -69,12 +69,12 @@ export default {
             //     }]
             // };
             let icon = 'image://' + './public/icon/test.svg';
-            var pandas = ["双双", "欣欣", "大毛", "顺顺", "加盼盼", "加悦悦", "乐乐", "丫丫", "洋洋", "伦伦", "雅伦", "喜伦", "添添", "美香", "小奇迹"];
+            var pandas = ["金宝宝", "华豹", "星二", "毛笋", "阳光", "甜甜", "武雯", "梵心", "心雅", "梦梦", "梦想", "梦圆", "娇庆", "好好", "天宝", "宝弟", "宝妹", "星徽", "阳阳", "圆圆", "欢欢", "欢黎黎", "圆嘟嘟", "圆子", "冰星", "竹莉娜", "九九", "友友", "花嘴巴", "京京", "四海"];
 
             //动物园 每3只熊猫在一个动物园的话应写为 “动物园1”,“”,“”
-            var zoos = ["Chapultepec", "", "", "Calgary", "", "", "Memphis", "", "", "Atlanta", "", "", "", "Simithsonian's National", ""]; // 分组显示的标签（组内如果是偶数加上偏移{offset|}，如果是计数放正中间）
+            var zoos = ["{offset|}艾赫泰里", "", "{offset|}哥本哈根", "", "{offset|}爱丁堡", "", "", "欧维汉", "", "", "{offset|}柏林", "", "", "", "", "天堂", "", "", "{offset|}美泉宫", "", "", "{offset|}博瓦勒", "", "", "", "", "{offset|}马德里", "", "", "{offset|}豪尔熊猫馆", ""]; // 分组显示的标签（组内如果是偶数加上偏移{offset|}，如果是计数放正中间）
             //动物园类分割线
-            var groupSeparates = [true, false, true, false, false, false, true, false, false, false, true, false, false, true];
+            var groupSeparates = [true, false, true, false, true, false, true, false, false, true, false, true, false, false, true];
 
             var ages = [36, 33, 15, 16, 0, 0, 25, 23, 26, 26, 0, 0, 26, 25, 0];
             var babyAges = [0, 0, 0, 0, 8, 8, 0, 0, 0, 0, 7, 7, 0, 0, 3];
@@ -111,7 +111,7 @@ export default {
                     left: '1%',
                     right: '1%',
                     top: '8%',
-                    bottom: '-0.1%',
+                    bottom: '1%',
 
                     //根据X轴标签的长度自适应调整整个画布的高度, 首先会优先保证标签的显示完整
                     containLabel: true
@@ -119,15 +119,17 @@ export default {
 
                 xAxis: [
 
-                    //    { position: "bottom",
-                    //     data: pandas,
-                    //     axisTick: {
-                    //         length: 10 // 刻度线的长度
-                    //     },
-                    //     axisLabel: {
-                    //         margin: 10 // 标签到轴线的距离
-                    //     }
-                    // }, 
+                    {
+                        position: "bottom",
+                        data: pandas,
+                        axisTick: {
+                            length: 10 // 刻度线的长度
+                        },
+                        axisLabel: {
+                            margin: 10 // 标签到轴线的距离
+                        },
+                        fontSize: 20,
+                    },
                     {
                         position: "bottom",
                         data: zoos,
@@ -156,7 +158,7 @@ export default {
 
                         //设置坐标不重叠
                         axisLabel: {
-                            margin: 30,
+                            margin: 25,
                             interval: 0, // 显示所有标签
                             rich: {
                                 offset: {

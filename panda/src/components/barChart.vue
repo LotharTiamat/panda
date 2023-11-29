@@ -308,7 +308,7 @@ export default {
 <style>
 .bar {
     width: 100%;
-    height: 45vh;
+    height: 40vh;
     /* background-color: #ffffff; */
 }
 </style>

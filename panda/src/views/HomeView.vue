@@ -19,32 +19,41 @@
           </div>
         </div>
         <div class="bottom">
-          <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
-            <div>
-              <el-radio-group v-model="type" size="small" @change="changeType">
-                <el-radio-button label="1">亚太地区</el-radio-button>
-                <el-radio-button label="2">欧洲</el-radio-button>
-                <el-radio-button label="3">美洲</el-radio-button>
-              </el-radio-group>
+          <div class="overlay-box"></div>
+          <div>
+            <div class="overlay-box">
+              <label>
+                <input type="radio" v-model="type" value="1"> 亚太地区
+              </label>
+              <label>
+                <input type="radio" v-model="type" value="2"> 欧洲
+              </label>
+              <label>
+                <input type="radio" v-model="type" value="3"> 美洲
+              </label>
             </div>
-          </el-row>
+          </div>
           <!-- 其他组件 -->
-          <BarChart v-if="type === '1'" />
-          <BarChart v-if="type === '2'" />
-          <BarChart v-if="type === '3'" />
+          <BarChartA v-if="type === '1'" />
+          <BarChartB v-if="type === '2'" />
+          <BarChartC v-if="type === '3'" />
           <!-- 其他组件 -->
         </div>
       </section>
       <section class="sideBar">侧边栏</section>
     </section>
   </div>
+  <!-- <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;" class="absolute"> -->
+  <!-- </el-row> -->
 </template>
 
 <script>
 
 import PieChart from "@/components/pieChart.vue"
 import ItemPage from "@/components/itemPage.vue"
-import BarChart from "@/components/barChart(copy).vue"
+import BarChartA from "@/components/barChartA.vue"
+import BarChartB from "@/components/barChartB.vue"
+import BarChartC from "@/components/barChartC.vue"
 import ItemOne from "@/components/itemOne.vue"
 import ItemTwo from "@/components/itemTwo.vue"
 import ItemThree from "@/components/itemThree.vue"
@@ -64,7 +73,7 @@ export default {
     }
   },
   components: {
-    ItemPage, ItemOne, ItemTwo, ItemThree, ItemFour, MapPage, BarChart, Text, Header, PieChart, LineChart, //Self,
+    ItemPage, ItemOne, ItemTwo, ItemThree, ItemFour, MapPage, BarChartA, BarChartB, BarChartC, Text, Header, PieChart, LineChart, //Self,
   },
   setup() {
     let $echarts = inject("echarts")
@@ -96,6 +105,7 @@ export default {
 
 // 大容器的样式
 .container {
+  // position: relative;
   //撑开大容器
   height: 94vh;
   // 最大最小的宽度
@@ -147,5 +157,22 @@ export default {
 
     flex: 0.1;
   }
+}
+
+.absolute {
+  // display: float;
+  position: absolute;
+  top: 4rem;
+  left: 1rem;
+}
+
+.overlay-box {
+  position: absolute;
+  top: 6.2rem;
+  /* 调整为所需的上边距 */
+  left: 0.7rem;
+  /* 调整为所需的左边距 */
+  z-index: 9999;
+  /* 确保盒子在其他元素上方 */
 }
 </style>
