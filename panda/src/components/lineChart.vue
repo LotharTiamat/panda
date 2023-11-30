@@ -24,7 +24,15 @@ export default {
                 //         //根据X轴标签的长度自适应调整整个画布的高度, 首先会优先保证标签的显示完整
                 //         containLabel: true
                 //     },
-
+                grid: {
+                    //调整在容器中位置
+                    left: '1%',
+                    right: '1%',
+                    top: '25%',
+                    bottom: '1%',
+                    //根据X轴标签的长度自适应调整整个画布的高度, 首先会优先保证标签的显示完整
+                    containLabel: true
+                },
                 title: {
                     text: '熊猫平均年龄',
                     left: 'left',
@@ -47,8 +55,16 @@ export default {
                 },
                 series: [
                     {
-                        data: [3, 30, 35],
-                        type: 'line'
+                        data: [3, 26, 30],
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                color: '#fe3965', //改变折线点的颜色
+                                lineStyle: {
+                                    color: '#fc9d9a' //改变折线颜色
+                                }
+                            }
+                        },
                     }
                 ]
             };

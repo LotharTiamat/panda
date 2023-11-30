@@ -169,7 +169,7 @@ export default {
                     name: '年龄',
 
                     interval: 5,
-                    //去掉网格线
+                    // //去掉网格线
                     // splitLine: {
                     //     show: false
                     // },
@@ -315,6 +315,9 @@ export default {
 
 <style>
 .bar {
+    /* position: absolute;
+    top: 55vh;
+    left: 1rem; */
     width: 100%;
     height: 100%;
     /* background-color: #ffffff; */

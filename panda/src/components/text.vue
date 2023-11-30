@@ -1,14 +1,14 @@
 <template>
     <div>
-        <span class="bigNumber">64</span>
+        <span class="bigNumber">61</span>
         <span class="text1">只</span>
         <span class="text2"> 熊猫 </span>
         <span class="text1">在</span>
-        <span class="bigNumber">23</span>
+        <span class="bigNumber">18</span>
         <span class="text1">个</span>
         <span class="text2"> 国家 </span>
         <span class="text1">的</span>
-        <span class="bigNumber">27</span>
+        <span class="bigNumber">20</span>
         <span class="text1">家</span>
         <span class="text2"> 动物园 </span>
         <span class="bigNumber"></span>

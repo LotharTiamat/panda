@@ -103,7 +103,7 @@ export default {
             data: [
               { name: 'United States', value: 4, },
               { name: 'Russia', value: 3, },
-              { name: 'Japan', value: 10, },
+              { name: 'Japan', value: 9, },
               { name: 'Singapore', value: 3, },
               { name: 'Malaysia', value: 2 },
               { name: 'Indonesia', value: 2, },

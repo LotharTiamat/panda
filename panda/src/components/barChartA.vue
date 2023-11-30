@@ -1,5 +1,19 @@
 <template>
     <div class="bar" id="bar"></div>
+    <!-- <div class="text">
+        <span class="bigNumber">64</span>
+        <span class="text1">只</span>
+        <span class="text2"> 熊猫 </span>
+        <span class="text1">在</span>
+        <span class="bigNumber">23</span>
+        <span class="text1">个</span>
+        <span class="text2"> 国家 </span>
+        <span class="text1">的</span>
+        <span class="bigNumber">27</span>
+        <span class="text1">家</span>
+        <span class="text2"> 动物园 </span>
+        <span class="bigNumber"></span>
+    </div> -->
 </template>
 
 <script>
@@ -69,23 +83,35 @@ export default {
             //     }]
             // };
             let icon = 'image://' + './public/icon/test.svg';
-            var pandas = ["伦伦", "欣欣", "大毛", "顺顺", "加盼盼", "加悦悦", "乐乐", "丫丫", "洋洋", "伦伦", "雅伦", "喜伦", "添添", "美香", "小奇迹"];
-
+            var pandas = ["如意", "新生", "丁丁", "爱宝", "福宝", "新生", "新生", "乐宝", "结浜", "彩浜", "枫浜", "良浜", "旦旦", "比力", "晓晓", "蕾蕾", "仙女", "凯凯", "叻叻", "嘉嘉", "兴兴", "靓靓", "彩陶", "湖春", "网网", "福妮"];
+            //3+5+9+3+2+2+2=26
             //动物园 每3只熊猫在一个动物园的话应写为 “动物园1”,“”,“”
-            var zoos = ["Chapultepec", "", "", "Calgary", "", "", "Memphis", "", "", "Atlanta", "", "", "", "Simithsonian's National", ""]; // 分组显示的标签（组内如果是偶数加上偏移{offset|}，如果是计数放正中间）
+            var zoos = ["", "莫斯科动物园", "", "", "", "三星爱宝动物园", "", "", "", "{offset|}冒险世界", "", "", "王子", "", "{offset|}上野", "", "", "", "河川生态园", "", "{offset|}马来西亚国家", "", "{offset|}印尼野生", "", "{offset|}阿德莱德", ""]; // 分组显示的标签（组内如果是偶数加上偏移{offset|}，如果是计数放正中间）
             //动物园类分割线
             var groupSeparates = [true, false, true, false, false, false, true, false, false, false, true, false, false, true];
 
-            var ages = [36, 33, 15, 16, 0, 0, 25, 23, 26, 26, 0, 0, 26, 25, 0];
-            var babyAges = [0, 0, 0, 0, 8, 8, 0, 0, 0, 0, 7, 7, 0, 0, 3];
+            var ages = [10, 0, 9, 10, 0, 0, 0, 11, 20, 0, 0, 21, 20, 25, 0, 0, 25, 15, 0, 16, 23, 22, 24, 23, 11, 12];
+            var babyAges = [0, 1, 0, 0, 3, 1, 1, 0, 0, 3, 4, 0, 0, 0, 3, 3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0];
 
-            var outAges = [0, 0, 4, 5, 0, 0, 4, 2, 2, 2, 0, 0, 3, 2, 0];
+            var outAges = [[0, 0], [2, 0], [3, 3], [7, 4], [8, 3], [11, 4], [12, 5], [13, 2], [16, 2], [17, 4], [19, 3], [20, 3], [21, 4], [22, 3], [23, 4], [24, 2], [25, 3]];
             var returnAges = [];
 
 
             let myChart = $echarts.init(document.getElementById("bar"));
 
             let option = {
+                // legend: {
+                //     top: "3%",
+                //     right: "5%",
+                //     icon: "rect",
+                //     itemWidth: 13,
+                //     itemHeight: 13, //图例宽高
+                //     textStyle: {
+                //         color: "#A0B2D3",
+                //         fontSize: 20,
+                //     },
+                // },
+
 
                 // tooltip: {
                 //     trigger: 'axis',
@@ -119,15 +145,16 @@ export default {
 
                 xAxis: [
 
-                    //    { position: "bottom",
-                    //     data: pandas,
-                    //     axisTick: {
-                    //         length: 10 // 刻度线的长度
-                    //     },
-                    //     axisLabel: {
-                    //         margin: 10 // 标签到轴线的距离
-                    //     }
-                    // }, 
+                    {
+                        position: "bottom",
+                        data: pandas,
+                        axisTick: {
+                            length: 10 // 刻度线的长度
+                        },
+                        axisLabel: {
+                            margin: 10 // 标签到轴线的距离
+                        }
+                    },
                     {
                         position: "bottom",
                         data: zoos,
@@ -156,11 +183,11 @@ export default {
 
                         //设置坐标不重叠
                         axisLabel: {
-                            margin: 15,
+                            margin: 25,
                             interval: 0, // 显示所有标签
                             rich: {
                                 offset: {
-                                    width: 0,
+                                    width: 80,
                                 }
                             }
                         }
@@ -171,9 +198,9 @@ export default {
 
                     interval: 5,
                     //去掉网格线
-                    splitLine: {
-                        show: false
-                    },
+                    // splitLine: {
+                    //     show: false
+                    // },
                 },
                 series: [
                     {
@@ -217,7 +244,8 @@ export default {
                                     var colorList = ['#248067', '#248067', '#69a794', '#69a794', '#69a794', '#69a794',
                                         '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840',
                                         '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840',
-                                        '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840'];
+                                        '#1a6840', '#1a6840', '#1a6840', '#248067', '#248067', '#69a794', '#69a794', '#69a794', '#69a794',
+                                        '#1a6840', '#1a6840', '#1a6840', '#1a6840'];
                                     return colorList[params.dataIndex]
                                 }
                             }
@@ -313,7 +341,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.text {
+    position: absolute;
+    top: 7rem;
+    left: 2rem;
+}
+
 .bar {
     width: 100%;
     height: 45vh;

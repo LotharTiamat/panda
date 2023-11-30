@@ -14,7 +14,15 @@ export default {
             let myChart = $echarts.init(document.getElementById("pie"));
 
             let option = {
-
+                grid: {
+                    //调整在容器中位置
+                    left: '1%',
+                    right: '1%',
+                    top: '25%',
+                    bottom: '1%',
+                    //根据X轴标签的长度自适应调整整个画布的高度, 首先会优先保证标签的显示完整
+                    containLabel: true
+                },
                 title: {
                     text: '熊猫性别比',
                     left: 'left',
@@ -32,8 +40,8 @@ export default {
                     top: 'bottom',
                     // bottom: 10,
                     data: [
-                        { value: 45, name: '雄性', itemStyle: { color: '#000' } },
-                        { value: 40, name: '雌性', itemStyle: { color: '#fff' } },
+                        { value: 29, name: '雄性', itemStyle: { color: '#000' } },
+                        { value: 32, name: '雌性', itemStyle: { color: '#fff' } },
                     ],
                     itemWidth: 24, // 设置宽度
                     itemHeight: 14, // 设置高度
@@ -64,8 +72,8 @@ export default {
                         radius: '55%',
                         center: ['50%', '50%'],
                         data: [
-                            { value: 45, name: '雄性', itemStyle: { color: '#000' } },
-                            { value: 40, name: '雌性', itemStyle: { color: '#fff' } },
+                            { value: 32, name: '雄性', itemStyle: { color: '#000' } },
+                            { value: 29, name: '雌性', itemStyle: { color: '#fff' } },
                         ].sort(function (a, b) {
                             return a.value - b.value;
                         }),

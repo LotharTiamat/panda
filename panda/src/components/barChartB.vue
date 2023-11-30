@@ -1,5 +1,19 @@
 <template>
     <div class="bar" id="bar"></div>
+    <!-- <div class="text">
+        <span class="bigNumber">64</span>
+        <span class="text1">只</span>
+        <span class="text2"> 熊猫 </span>
+        <span class="text1">在</span>
+        <span class="bigNumber">23</span>
+        <span class="text1">个</span>
+        <span class="text2"> 国家 </span>
+        <span class="text1">的</span>
+        <span class="bigNumber">27</span>
+        <span class="text1">家</span>
+        <span class="text2"> 动物园 </span>
+        <span class="bigNumber"></span>
+    </div> -->
 </template>
 
 <script>
@@ -71,15 +85,17 @@ export default {
             let icon = 'image://' + './public/icon/test.svg';
             var pandas = ["金宝宝", "华豹", "星二", "毛笋", "阳光", "甜甜", "武雯", "梵心", "心雅", "梦梦", "梦想", "梦圆", "娇庆", "好好", "天宝", "宝弟", "宝妹", "星徽", "阳阳", "圆圆", "欢欢", "欢黎黎", "圆嘟嘟", "圆子", "冰星", "竹莉娜", "九九", "友友", "花嘴巴", "京京", "四海"];
 
+            //2+2+2+2+3+4+5
             //动物园 每3只熊猫在一个动物园的话应写为 “动物园1”,“”,“”
             var zoos = ["{offset|}艾赫泰里", "", "{offset|}哥本哈根", "", "{offset|}爱丁堡", "", "", "欧维汉", "", "", "{offset|}柏林", "", "", "", "", "天堂", "", "", "{offset|}美泉宫", "", "", "{offset|}博瓦勒", "", "", "", "", "{offset|}马德里", "", "", "{offset|}豪尔熊猫馆", ""]; // 分组显示的标签（组内如果是偶数加上偏移{offset|}，如果是计数放正中间）
             //动物园类分割线
-            var groupSeparates = [true, false, true, false, true, false, true, false, false, true, false, true, false, false, true];
+            var groupSeparates = [true, false, true, false, true, false, true, false, false, true, false, false, false, true, false, false, false, false, true, false, true, , true, false, false, false, true, false, true];
 
-            var ages = [36, 33, 15, 16, 0, 0, 25, 23, 26, 26, 0, 0, 26, 25, 0];
-            var babyAges = [0, 0, 0, 0, 8, 8, 0, 0, 0, 0, 7, 7, 0, 0, 3];
+            //前两个对的
+            var ages = [10, 9, 10, 9, 15, 16, 14, 15, 10, 0, 10, 10, 0, 0, 10, 14, 0, 0, 0, 13, 14, 0, 0, 15, 19, 0, 0, 0, 20, 4, 5];
+            var babyAges = [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 4, 4, 0, 0, 7, 4, 4, 0, 0, 2, 2, 0, 0, 7, 2, 2, 0, 0, 0];
 
-            var outAges = [0, 0, 4, 5, 0, 0, 4, 2, 2, 2, 0, 0, 3, 2, 0];
+            var outAges = [[0, 5], [1, 4], [2, 4], [3, 4], [4, 3], [5, 4], [6, 4], [7, 3], [8, 3], [10, 3], [11, 3], [14, 4], [15, 2], [19, 3], [20, 3], [23, 4], [24, 5], [28, 4], [29, 3], [30, 4]];
             var returnAges = [];
 
 
@@ -128,7 +144,10 @@ export default {
                         axisLabel: {
                             margin: 10 // 标签到轴线的距离
                         },
-                        fontSize: 20,
+                        textStyle: {
+                            fontSize: "10",
+                        },
+
                     },
                     {
                         position: "bottom",
@@ -162,7 +181,7 @@ export default {
                             interval: 0, // 显示所有标签
                             rich: {
                                 offset: {
-                                    width: 0,
+                                    width: 70,
                                 }
                             }
                         }
@@ -220,7 +239,9 @@ export default {
                                     var colorList = ['#248067', '#248067', '#69a794', '#69a794', '#69a794', '#69a794',
                                         '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840',
                                         '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840',
-                                        '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840'];
+                                        '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#248067', '#248067', '#69a794', '#69a794', '#69a794', '#69a794',
+                                        '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840', '#1a6840',
+                                        '#1a6840', '#1a6840', '#1a6840'];
                                     return colorList[params.dataIndex]
                                 }
                             }
@@ -316,10 +337,16 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .bar {
     width: 100%;
-    height: 45vh;
+    height: 100%;
     /* background-color: #ffffff; */
+}
+
+.text {
+    position: absolute;
+    top: 6rem;
+    left: 2rem;
 }
 </style>
