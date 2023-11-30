@@ -131,6 +131,11 @@ export default {
             value: [51.52, 25.28],
             number: '2',
           },
+          {
+            name: "豪美泉宫动物园",
+            value: [16.3, 48.2],
+            number: '2',
+          }
         ];
         myChart.setOption({
           layoutCenter: ['50%', '50%'],//位置
@@ -163,9 +168,9 @@ export default {
             type: 'piecewise',
             pieces: [
               { min: 8, max: 10, color: 'rgb(254,57,101)' },
-              { min: 7, max: 8, color: 'rgb(252,157,154)' },
+              { min: 7, max: 8, color: '' },
               { min: 4, max: 6, color: 'rgb(249,205,173)' },
-              { min: 2, max: 4, color: 'rgb(200,200,169)' },
+              { min: 2, max: 4, color: 'rgb(90, 160, 86)' },
               { min: 0, max: 2, color: 'rgb(131,175,155)' }
             ],
             textStyle: {
